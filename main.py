@@ -39,9 +39,9 @@ time.sleep(2)
 # jobs = driver.find_element(By.LINK_TEXT,value="Jobs")
 # jobs.click()
 
-# The below url is the url of linkedin with job filters applied to it.
+# The below url is the url of LinkedIn with job filters applied to it.
 # You might think we can go to this page after logged in but we cant. Because, after logged in we cant find job filters in job section.
-# So, here i just opened new linkedin page with applied job filters after logged in, so it doesnt ask to log in again.
+# So, here i just opened new LinkedIn page with applied job filters after logged in, so it doesn't ask to log in again.
 jobs_url = "https://www.linkedin.com/jobs/search/?currentJobId=4039135429&distance=100&f_AL=true&geoId=105214831&keywords=python%20intern&origin=JOB_SEARCH_PAGE_KEYWORD_AUTOCOMPLETE&refresh=true"
 linkedin.get(jobs_url)
 
@@ -60,6 +60,8 @@ for job in list_of_jobs:
 
         time.sleep(2)
 
+        # Here we just save the jobs because, one, it's a sample project with sample LinkedIn account.So applying might be non-ethical.
+        # Second, job apply portal will change company to company and for many more reasons even in "Easy apply" jobs.
         save = linkedin.find_element(By.CLASS_NAME,value="jobs-save-button")
         save_text = save.text.lower()
         if "saved" in save_text or "unsave" in save_text:
